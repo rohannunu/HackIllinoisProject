@@ -2,12 +2,12 @@ from flask import Flask, request, jsonify, render_template
 import time
 app = Flask(__name__)
 
-@app.route('/getMostSim')
+
+parameterList = ["population", "pollution", "nature", "GDP"]
+
+@app.route('/')
 def index():
-    x = int(request.args.get('x'))
-    return {
-        "x":str(x+1)
-    }
+    return render_template("index.html", parameterList=parameterList)
 
 
 if __name__ == "__main__":
