@@ -1,10 +1,13 @@
 from flask import Flask, request, jsonify, render_template
-
+import time
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/getMostSim')
 def index():
-    return render_template("index.html")
+    x = int(request.args.get('x'))
+    return {
+        "x":str(x+1)
+    }
 
 
 if __name__ == "__main__":
