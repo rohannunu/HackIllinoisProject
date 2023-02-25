@@ -1,3 +1,13 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+ </head>
+
+<script src="{{url_for('static', filename='main.js')}}"></script>
 {% for i in range(0, parameterListLen) %}
 <li>{{parameterList[i]}}</li>
+<div class="slidecontainer">
+    <input type="range" min="1" max="100" value="50" class="slider" id="{{parameterList[i]}}">
+</div>
 {% endfor %}
+<button class="submit" onclick="changeCountry()">SUBMIT</button>
+<h3 id="my-country-header">Hit Submit to Get Results</h3>
