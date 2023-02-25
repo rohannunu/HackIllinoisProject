@@ -17,6 +17,7 @@ def getCountry():
     for param in parameterList:
         arg = data[param]
         model_input.append(int(arg) if arg else 0)
+    # Replace this line with a pickle call?
     country = pred_country.pred_country(model_input)
     return country
                                             
