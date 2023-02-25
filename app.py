@@ -7,7 +7,7 @@ parameterList = ["population", "pollution", "nature", "GDP"]
 
 @app.route('/')
 def index():
-    return render_template("index.html", parameterList=parameterList)
+    return render_template("index.html", parameterList=parameterList, parameterListLen=len(parameterList))
 
 
 if __name__ == "__main__":
