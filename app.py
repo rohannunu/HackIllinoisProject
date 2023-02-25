@@ -1,10 +1,13 @@
 from flask import Flask, request, jsonify, render_template
-
+import time
 app = Flask(__name__)
+
+
+parameterList = ["population", "pollution", "nature", "GDP"]
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template("index.html", parameterList=parameterList, parameterListLen=len(parameterList))
 
 
 if __name__ == "__main__":
