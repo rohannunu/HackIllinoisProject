@@ -11,12 +11,12 @@ def config(df):
         reversescale=True,
         marker_line_color='darkgray',
         marker_line_width=0.5,
-        colorbar_tickprefix = '$',
+        colorbar_tickprefix = '%',
         colorbar_title = 'Probability',
     ))
 
     fig.update_layout(
-        title_text='2014 Global GDP',
+        title_text='Probability That a Country Matches You',
         geo=dict(
             showframe=False,
             showcoastlines=False,
@@ -25,13 +25,9 @@ def config(df):
         annotations = [dict(
             x=0.55,
             y=0.1,
-            xref='paper',
-            yref='paper',
-            text='Source: <a href="https://www.cia.gov/library/publications/the-world-factbook/fields/2195.html">\
-                CIA World Factbook</a>',
             showarrow = False
         )]
     )
-
-    fig.show()
-
+    print("reached")
+    fig.write_image("static/fig.png")
+    print("Fig")

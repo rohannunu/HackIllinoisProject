@@ -17,9 +17,9 @@ second_scaler = preprocessing.MinMaxScaler(feature_range=(0,1)).fit(X_1)
 X_scaled = second_scaler.transform(X_1)
 
 #clf = RandomForestClassifier(max_depth = 5)
-clf = LogisticRegression()
+#clf = LogisticRegression()
 #clf = KNeighborsClassifier()
-#clf = SVC(probability=True)
+clf = SVC(probability=True)
 clf.fit(X_scaled, y)
 
 
@@ -60,7 +60,6 @@ def showPlot(map_in):
     }
     df2 = pd.DataFrame(temp_map)
     df2['code'] = df['code']
-    print(df2.head())
     test.config(df2)
 
 def Convert(tup, di):
