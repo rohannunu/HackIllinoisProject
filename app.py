@@ -1,10 +1,11 @@
-from flask import Flask, request,  render_template
+from flask import Flask, request,  render_template, jsonify
 import json
 import pred_country
 app = Flask(__name__)
 
 
 parameterList = ["Ladder", "Positive affect","Social support", "Freedom", "Corruption", "Generosity", "Log of GDP per capita", "Healthy life expectancy", "CO2 Emissions", "Population", "Yearly Change", "Density", "Land Area", "Urban Pop %"]
+totalAvailablePoints = 750
 
 @app.route('/')
 def index():
@@ -43,8 +44,14 @@ def getCountryImage():
     bytestream = pred_country.pred_prob(model_input)
     return bytestream     
 
+
+@app.route('/updatePointValue/', methods=["POST"])
+def updateInternalPointValue():
+    sumOfSliders = json.loads( request.form.get("totalVal"))
+    return str(totalAvailablePoints - sumOfSliders)
+       
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=81, debug=True) #TODO: change
+    app.run(host='0.0.0.0', port=81, debug=False) #TODO: change
 
 
     
