@@ -9,7 +9,7 @@ totalAvailablePoints = 750
 
 @app.route('/')
 def index():
-    return render_template("index.html", parameterList=parameterList, parameterListLen=len(parameterList))
+    return render_template("index.html", parameterList = parameterList, parameterListLen = len(parameterList))
 
 @app.route('/getCountry', methods = ["POST","GET"])
 def getCountry():
