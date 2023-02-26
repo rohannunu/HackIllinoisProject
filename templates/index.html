@@ -1,13 +1,18 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
  </head>
 
 <script src="{{url_for('static', filename='main.js')}}"></script>
+<body>
+<div class = "container">
 {% for i in range(0, parameterListLen) %}
-<li>{{parameterList[i]}}</li>
+    <li>{{parameterList[i]}}</li>
 <div class="slidecontainer">
     <input type="range" min="1" max="100" value="50" class="slider" id="{{parameterList[i]}}">
 </div>
 {% endfor %}
 <button class="submit" onclick="changeCountry()">SUBMIT</button>
 <h3 id="my-country-header">Hit Submit to Get Results</h3>
+</div>
+</body>
