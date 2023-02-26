@@ -1,4 +1,4 @@
-,Country,Ladder,Positive affect,Negative affect,Social support,Freedom,Corruption,Generosity,Log of GDP per capita,Healthy life expectancy,CO2 Emissions,Population,Yearly Change,Net Change,Density,Land Area,Urban Pop %
+,Country,Ladder,Positive Effect,Negative affect,Social support,Freedom,Corruption,Generosity,Log of GDP per capita,Healthy life expectancy,CO2 Emissions,Population,Yearly Change,Net Change,Density,Land Area,Urban Pop %
 0,Finland,1,41.0,10.0,2.0,5.0,4.0,47.0,22.0,27.0,42.381841,5542237,0.0015,8564,18,303890,0.86
 1,Denmark,2,24.0,26.0,4.0,6.0,3.0,22.0,14.0,23.0,30.955444,5795780,0.0034999999999999996,20326,137,42430,0.88
 2,Norway,3,16.0,29.0,3.0,3.0,8.0,11.0,7.0,12.0,42.784,5428594,0.0079,42384,15,365268,0.83

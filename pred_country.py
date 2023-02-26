@@ -8,7 +8,7 @@ from sklearn.svm import SVC
 
 
 df = pd.read_csv("out.csv")
-X = df[["Ladder", "Positive affect","Social support", "Freedom", "Corruption", "Generosity", "Log of GDP per capita", "Healthy life expectancy", "CO2 Emissions", "Population", "Yearly Change", "Density", "Land Area", "Urban Pop %"]]
+X = df[["Ladder", "Positive Effect","Social support", "Freedom", "Corruption", "Generosity", "Log of GDP per capita", "Healthy life expectancy", "CO2 Emissions", "Population", "Yearly Change", "Density", "Land Area", "Urban Pop %"]]
 y  = df['Country']
 
 scaler = preprocessing.RobustScaler().fit(X)
@@ -36,8 +36,6 @@ def pred_country(model_input):
     countries = df['Country']
     output = list(zip(countries, res))
     output.sort(key=lambda tup: tup[1])
-    print(output)
-    print(output[len(output) - 1][0])
     return output[len(output) - 1][0]
 
 def pred_prob(model_input):
