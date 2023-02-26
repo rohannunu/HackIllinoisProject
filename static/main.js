@@ -33,8 +33,8 @@ function getProbabilityCountry() {
     function(data, status) {
         console.log(data);
     });
-      });
 }
+
 
 function sendValue(){
     totalVal = 0
