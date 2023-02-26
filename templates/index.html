@@ -1,20 +1,39 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
  </head>
 
 
 <script src="{{url_for('static', filename='main.js')}}"></script>
+<script>
+    $(function(){
+        window.setInterval(function(){
+            loadNewPointCount()
+        }, 100)
+
+    function loadNewPointCounter(){
+        $.ajax({
+            url:"/update_points",
+            type:"POST",
+            dataType:"json",
+            success: function(data) {
+                $(pointVal).replaceWith(data)
+            }
+        });
+    }
+    });
+</script>
 <body>
 <div class = "container">
 {% for i in range(0, parameterListLen) %}
     <li>{{parameterList[i]}}</li>
 <div class="slidecontainer">
-    <input type="range" min="1" max="100" value="50" class="slider" id="{{parameterList[i]}}">
+    <input type="range" min="0" max="100" value="0" class="slider" id="{{parameterList[i]}}">
 </div>
 {% endfor %}
 <button class="submit" onclick="changeCountry()">SUBMIT</button>
 <h3 id="my-country-header">Hit Submit to Get Results</h3>
+<h3>Points Remaining: </h3><p id="pointVal">{{userPointCount}}</p>
 </div>
 </body>
