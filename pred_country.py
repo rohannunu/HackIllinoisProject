@@ -29,6 +29,7 @@ def main():
     print(clf.predict_proba(inp_scaled))
 
 def pred_country(model_input):
+    #"Ladder", "Positive affect","Social support", "Freedom", "Corruption", "Generosity", "Log of GDP per capita", "Healthy life expectancy", "CO2 Emissions", "Population", "Yearly Change", "Density", "Land Area", "Urban Pop %"
     inp_scaled = scaler.transform([model_input])
     res = clf.predict(inp_scaled)
     return res[0]
