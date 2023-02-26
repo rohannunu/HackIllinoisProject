@@ -5,7 +5,7 @@ from sklearn import preprocessing
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
-
+import test
 
 df = pd.read_csv("out.csv")
 X = df[["Ladder", "Positive Effect","Social support", "Freedom", "Corruption", "Generosity", "Log of GDP per capita", "Healthy life expectancy", "CO2 Emissions", "Population", "Yearly Change", "Density", "Land Area", "Urban Pop %"]]
@@ -46,8 +46,23 @@ def pred_prob(model_input):
     countries = df['Country']
     output = list(zip(countries, res))
     output = Convert(output, {})
+    showPlot(output)
     return output
     
+def showPlot(map_in):
+    country_list = map_in.keys()
+    probs = []
+    for country in country_list:
+        probs.append(map_in[country][0])
+    temp_map = {
+        'Country': country_list,
+        'Prob': probs
+    }
+    df2 = pd.DataFrame(temp_map)
+    df2['code'] = df['code']
+    print(df2.head())
+    test.config(df2)
+
 def Convert(tup, di):
     for a, b in tup:
         di.setdefault(a, []).append(b)

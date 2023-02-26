@@ -28,7 +28,7 @@ def getProb():
         arg = data[param]
         model_input.append(int(arg) if arg else 0)
     map_of_prob = pred_country.pred_prob(model_input)
-    return map_of_prob;
+    return map_of_prob
                                             
        
 if __name__ == "__main__":

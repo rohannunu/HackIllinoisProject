@@ -3,9 +3,17 @@
 import pandas as pd
 
 df = pd.read_csv("out.csv")
-df['Urban Pop %'] = df['Urban Pop %'].str.rstrip('%').astype('float') / 100.0
-df['Yearly Change'] = df['Yearly Change'].str.rstrip('%').astype('float') / 100.0
+print(df.head())
+df2 = pd.read_csv("test.csv")
+print(df2.head())
 
-df = df[['Country','Ladder','Positive affect','Negative affect','Social support','Freedom','Corruption','Generosity','Log of GDP per capita','Healthy life expectancy','CO2 Emissions','Population','Yearly Change','Net Change','Density','Land Area','Urban Pop %']]
+df2['Country'] = df2['COUNTRY']
 
-#df.to_csv('out.csv')
+df2 = df2[df2['Country'].isin(df['Country'])]
+
+df2 = df2[['Country', 'CODE']]
+
+df3 = pd.merge(df, df2, on="Country")
+
+print(df3)
+#df3.to_csv("out.csv")
