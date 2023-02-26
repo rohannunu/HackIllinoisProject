@@ -34,3 +34,29 @@ function getProbabilityCountry() {
         console.log(data);
     });
 }
+
+
+function sendValue(){
+    totalVal = 0
+    for (i in parameterList){
+        param = parameterList[i]
+        let val = document.getElementById(param).value
+        totalVal += parseInt(val)
+        //document.getElementById(param).max =  Math.min(100, val - (totalVal - 750))//need to calculate here
+    }
+   
+    if (totalVal > 750) {
+        document.getElementById("submitBtn").disabled = true
+        totalVal = 750
+    } else {
+        document.getElementById("submitBtn").disabled = false
+    }
+   
+    $.post("/updatePointValue/",
+    {"totalVal":JSON.stringify(totalVal)},
+    function(data, status){ //This gets back whatever Flask function calls
+        console.log(data)
+        document.getElementById("pointVal").innerHTML = data
+
+      });
+}

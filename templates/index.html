@@ -11,6 +11,7 @@
 
 
 <script src="{{url_for('static', filename='main.js')}}"></script>
+
 <body>
     <div class="landing section">
         <div class="title-group">
@@ -97,7 +98,7 @@
     
         <li class="parameter-slider">{{parameterList[i]}}
          <div class="slidecontainer">
-        <input type="range" min="1" max="100" value="50" class="slider" id="{{parameterList[i]}}">
+        <input type="range" min="0" max="100" value="0" class="slider" id="{{parameterList[i]}}" onChange="sendValue()">
         </div>
         </li>
         {% endfor %}
@@ -107,9 +108,21 @@
             <img id="map-canvas"/>
         </div>
         <div class="submit-container">
-            <button class="submit" onclick="changeCountry()">SUBMIT</button>
+            <button class="submit" id="submitBtn" onclick="changeCountry();">SUBMIT</button>
         </div>
             <h4 id="my-country-header">Hit Submit to Get Results</h3>
+            <h3>Points Remaining: </h3><h3 id="pointVal">750</h3>
         </div>
     </div>
+<!-- <div class = "container">
+{% for i in range(0, parameterListLen) %}
+    <li>{{parameterList[i]}}</li>
+<div class="slidecontainer">
+    <input type="range" min="0" max="100" value="0" class="slider" id="{{parameterList[i]}}" onChange="sendValue()">
+</div>
+{% endfor %}
+<button class="submit" id="submitBtn" onclick="changeCountry()">SUBMIT</button>
+<h3 id="my-country-header">Hit Submit to Get Results</h3>
+<h3>Points Remaining: </h3><h3 id="pointVal">750</h3>
+</div> -->
 </body>
