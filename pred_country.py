@@ -7,9 +7,6 @@ df = pd.read_csv("out.csv")
 X = df[["Ladder", "Positive affect","Social support", "Freedom", "Corruption", "Generosity", "Log of GDP per capita", "Healthy life expectancy", "CO2 Emissions", "Population", "Yearly Change", "Density", "Land Area", "Urban Pop %"]]
 y  = df['Country']
 
-X['Urban Pop %'] = X['Urban Pop %'].str.rstrip('%').astype('float') / 100.0
-X['Yearly Change'] = X['Yearly Change'].str.rstrip('%').astype('float') / 100.0
-
 scaler = preprocessing.StandardScaler().fit(X)
 
 X_scaled = scaler.transform(X)
