@@ -29,7 +29,7 @@ def getProb():
         model_input.append(int(arg) if arg else 0)
     map_of_prob = pred_country.pred_prob(model_input)
     return map_of_prob
-                                            
+                                
        
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=81, debug=True) #TODO: change

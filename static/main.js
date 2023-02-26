@@ -7,11 +7,17 @@ function changeCountry(){
         obj[param] = document.getElementById(param).value;
     }
     console.log(obj);
+    
     $.post( "/getCountry",
     {"parameters":JSON.stringify(obj)},
     function(data, status){
         document.getElementById("my-country-header").innerHTML = "Your results are most similar to "+data+".";
-      });
+    });
+    $.post( "/getCountryImage",
+    {"parameters":JSON.stringify(obj)},
+    function(data, status){
+        document.getElementById("map-canvas").src = "data:image/png;base64," + data;
+    });
 }
 
 function getProbabilityCountry() {
