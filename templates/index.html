@@ -2,27 +2,100 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
- </head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Montserrat:wght@300;400;600;700&family=Noto+Sans:wght@100;200;300;400;500;700;900&family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+</head>
 
 
 <script src="{{url_for('static', filename='main.js')}}"></script>
 <body>
     <div class="landing section">
-
+        <div class="title-group">
+            <h1>GeoGenie</h1>
+            <img src="/static/logo.png"/>
+        </div>
+        <h2>creating global connections, one ideal country at a time</h2>
+        <img class="africa animate__animated animate__fadeInLeft" src="/static/continents/africa.png"/>
     </div>
 
     <div class="about section">
-
+        <img class="northamerica animate__animated animate__fadeInRight" src="/static/continents/northamerica.png"/>
+        <img class="asia animate__animated animate__fadeInLeft" src="/static/continents/asia.png"/>
+        <p>
+            <h3 class="underline">Our Methodology</h3>
+        </p>
+        <table class="table table-bordered table-hover table-condensed">
+            <thead><tr><th title="Field #1">Country</th>
+            <th title="Field #3">Happiness Rank</th>
+            <th title="Field #4">Happiness Score</th>
+            <th title="Field #5">Standard Error</th>
+            <th title="Field #6">Economy (GDP per Capita)</th>
+            <th title="Field #7">Family</th>
+            <th title="Field #8">Health (Life Expectancy)</th>
+            <th title="Field #9">Freedom</th>
+            <th title="Field #10">Trust (Government Corruption)</th>
+            <th title="Field #11">Generosity</th>
+            </tr></thead>
+            <tbody><tr>
+            <td>Switzerland</td>
+            <td align="right">1</td>
+            <td align="right">7.587</td>
+            <td align="right">0.03411</td>
+            <td align="right">1.39651</td>
+            <td align="right">1.34951</td>
+            <td align="right">0.94143</td>
+            <td align="right">0.66557</td>
+            <td align="right">0.41978</td>
+            <td align="right">0.29678</td>
+            </tr>
+            <tr>
+            <td>Iceland</td>
+            <td align="right">2</td>
+            <td align="right">7.561</td>
+            <td align="right">0.04884</td>
+            <td align="right">1.30232</td>
+            <td align="right">1.40223</td>
+            <td align="right">0.94784</td>
+            <td align="right">0.62877</td>
+            <td align="right">0.14145</td>
+            <td align="right">0.4363</td>
+            </tr>
+            <tr>
+            <td>Denmark</td>
+            <td align="right">3</td>
+            <td align="right">7.527</td>
+            <td align="right">0.03328</td>
+            <td align="right">1.32548</td>
+            <td align="right">1.36058</td>
+            <td align="right">0.87464</td>
+            <td align="right">0.64938</td>
+            <td align="right">0.48357</td>
+            <td align="right">0.34139</td>
+            </tr>
+            </tbody></table>
     </div>
 
     <div class = "app section">
-    {% for i in range(0, parameterListLen) %}
-        <li>{{parameterList[i]}}</li>
-    <div class="slidecontainer">
+        <img class="southamerica animate__animated animate__fadeInRight" src="/static/continents/southamerica.png"/>
+        <div class="left">
+        {% for i in range(0, parameterListLen) %}
+    
+        <li class="parameter-slider">{{parameterList[i]}}
+         <div class="slidecontainer">
         <input type="range" min="1" max="100" value="50" class="slider" id="{{parameterList[i]}}">
-    </div>
-    {% endfor %}
-    <button class="submit" onclick="changeCountry()">SUBMIT</button>
-    <h3 id="my-country-header">Hit Submit to Get Results</h3>
+        </div>
+        </li>
+        {% endfor %}
+        </div>
+        <div class="right">
+        <div class="map-container"></div>
+        <div class="submit-container">
+            <button class="submit" onclick="changeCountry()">SUBMIT</button>
+        </div>
+            <h4 id="my-country-header">Hit Submit to Get Results</h3>
+        </div>
     </div>
 </body>
