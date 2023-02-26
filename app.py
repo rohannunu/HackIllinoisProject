@@ -30,7 +30,19 @@ def getProb():
     map_of_prob = pred_country.pred_prob(model_input)
     return map_of_prob
                                 
-       
+
+@app.route('/getCountryImage', methods = ["POST", "GET"])
+def getCountryImage():
+    model_input = []
+    data = json.loads(request.form.get("parameters"))
+    for param in parameterList:
+        arg = data[param]
+        model_input.append(int(arg) if arg else 0)
+    
+    
+    bytestream = pred_country.pred_prob(model_input)
+    return bytestream     
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=81, debug=True) #TODO: change
 

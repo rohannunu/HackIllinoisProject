@@ -16,7 +16,8 @@ function changeCountry(){
     $.post( "/getCountryImage",
     {"parameters":JSON.stringify(obj)},
     function(data, status){
-        document.getElementById("map-canvas").src = "data:image/png;base64," + data;
+       
+        document.getElementById("map-container").style.backgroundImage="url("+data+")";
     });
 }
 

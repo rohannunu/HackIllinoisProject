@@ -46,8 +46,8 @@ def pred_prob(model_input):
     countries = df['Country']
     output = list(zip(countries, res))
     output = Convert(output, {})
-    showPlot(output)
-    return output
+    
+    return showPlot(output)
     
 def showPlot(map_in):
     country_list = map_in.keys()
@@ -60,7 +60,8 @@ def showPlot(map_in):
     }
     df2 = pd.DataFrame(temp_map)
     df2['code'] = df['code']
-    test.config(df2)
+    return test.config(df2)
+
 
 def Convert(tup, di):
     for a, b in tup:
