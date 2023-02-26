@@ -13,3 +13,17 @@ function changeCountry(){
         document.getElementById("my-country-header").innerHTML = "Your results are most similar to "+data+".";
       });
 }
+
+function getProbabilityCountry() {
+    obj = {};
+    for (i in parameterList) {
+        param = parameterList[i]
+        obj[param] = document.getElementById(param).value;
+    }
+    console.log(obj);
+    $.post( "/getProb",
+    {"parameters":JSON.stringify(obj)},
+    function(data, status) {
+        console.log(data);
+    });
+}

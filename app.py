@@ -13,12 +13,22 @@ def index():
 @app.route('/getCountry', methods = ["POST","GET"])
 def getCountry():
     model_input = []
-    data =json.loads( request.form.get("parameters"))
+    data = json.loads( request.form.get("parameters"))
     for param in parameterList:
         arg = data[param]
         model_input.append(int(arg) if arg else 0)
     country = pred_country.pred_country(model_input)
     return country
+
+@app.route('/getProb', methods = ["POST", "GET"])
+def getProb():
+    model_input = []
+    data = json.loads(request.form.get("parameters"))
+    for param in parameterList:
+        arg = data[param]
+        model_input.append(int(arg) if arg else 0)
+    map_of_prob = pred_country.pred_prob(model_input)
+    return map_of_prob;
                                             
        
 if __name__ == "__main__":
