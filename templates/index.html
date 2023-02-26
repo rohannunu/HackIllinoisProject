@@ -15,7 +15,7 @@
     <input type="range" min="0" max="100" value="0" class="slider" id="{{parameterList[i]}}" onChange="sendValue()">
 </div>
 {% endfor %}
-<button class="submit" onclick="changeCountry()">SUBMIT</button>
+<button class="submit" id="submitBtn" onclick="changeCountry()">SUBMIT</button>
 <h3 id="my-country-header">Hit Submit to Get Results</h3>
 <h3>Points Remaining: </h3><h3 id="pointVal">750</h3>
 </div>
