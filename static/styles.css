@@ -1,6 +1,128 @@
+/*font-family: 'Climate Crisis', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Noto Sans', sans-serif;*/
 body{
     background-color: beige;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    overflow-x: hidden;
+    
 }
 .section{
     height:100vh;
+    padding: 2vh 4vw;
+    position: relative;
+    min-height: fit-content;
+}
+.landing{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.landing .title-group{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 60vh;
+    justify-content:center;
+}
+.title-group h1{
+    font-size: 6rem;
+    font-family: 'Climate Crisis', cursive;
+}
+
+.africa{
+    position:absolute;
+    z-index: -1;
+    top:40vh;
+    left:10vw;
+    animation-delay: 0.5s;
+}
+.northamerica{
+    position:absolute;
+    z-index: -1;
+    top:-10vh;
+    right:10vw;
+    animation-delay: 1s;
+}
+.southamerica{
+    position:absolute;
+    z-index: -1;
+    top:40vh;
+    left:-5vw;
+    animation-delay: 3s;
+}
+.asia{
+    position:absolute;
+    z-index: -1;
+    top:60vh;
+    right:30vw;
+    animation-delay: 2s;
+    width:70vw;
+}
+.underline{
+    text-decoration: underline;
+    font-weight: 600;
+}
+table{
+    background-color: rgba(255, 255, 255, 0.616);
+}
+
+.parameter-slider{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 8px;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.616);
+    width:35vw;
+    margin-bottom: 3vh;
+    justify-content: space-around;
+    align-items: center;
+}
+.app{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.app .left{
+    min-width: fit-content;
+    overflow-y: scroll;
+}
+.app .right{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+}
+.submit-container{
+    position: relative;
+    width:40%;
+    height: 10%;
+    margin-top: 4vh;
+}
+.submit{
+    width:100%;
+    border: solid 2px rgb(89, 125, 255);
+    color: black;
+    position: absolute;
+    margin-left: auto;
+    margin-top: auto;
+    background-color: transparent;
+    border-radius: 1rem;
+    padding: 4px;
+    
+    
+}
+.submit:hover{
+    transform: scale(1.04);
+    border: none;
+    color: white;
+    background-color: rgb(89, 125, 255);
+}
+.map-container{
+    background-color: white;
+    width:90%;
+    height:80%
 }
