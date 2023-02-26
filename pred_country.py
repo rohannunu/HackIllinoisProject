@@ -8,7 +8,7 @@ df = pd.read_csv("out.csv")
 X = df[["Ladder", "Positive affect","Social support", "Freedom", "Corruption", "Generosity", "Log of GDP per capita", "Healthy life expectancy", "CO2 Emissions", "Population", "Yearly Change", "Density", "Land Area", "Urban Pop %"]]
 y  = df['Country']
 
-scaler = preprocessing.MinMaxScaler(feature_range=(0,1)).fit(X)
+scaler = preprocessing.RobustScaler().fit(X)
 X_scaled = scaler.transform(X)
 
 clf = RandomForestClassifier(max_depth = 4)
@@ -21,7 +21,7 @@ inp_scaled = scaler.transform(input)
 
 #Testing
 X_s = df[['Density']]
-scaler2 = preprocessing.MinMaxScaler(feature_range=(0,1)).fit(X_s)
+scaler2 = preprocessing.RobustScaler().fit(X_s)
 X_scaled2 = scaler2.transform(X_s)
 print(X_scaled2)
 
