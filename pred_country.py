@@ -1,4 +1,5 @@
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import DecisionTreeClassifier
 import pandas as pd
 from sklearn import preprocessing
 
@@ -11,7 +12,7 @@ scaler = preprocessing.StandardScaler().fit(X)
 
 X_scaled = scaler.transform(X)
 
-clf = RandomForestClassifier(max_depth = 4)
+clf = DecisionTreeClassifier(max_depth = 4)
 clf.fit(X_scaled, y)
 
 input = [[9,18.0,20.0,9.0,11.0,14.0,19.0,8.0,0.069134,5542237,0.0015,18,303890,0.86]]
@@ -30,8 +31,10 @@ def main():
 
 def pred_country(model_input):
     #"Ladder", "Positive affect","Social support", "Freedom", "Corruption", "Generosity", "Log of GDP per capita", "Healthy life expectancy", "CO2 Emissions", "Population", "Yearly Change", "Density", "Land Area", "Urban Pop %"
+    scaler = preprocessing.StandardScaler().fit([model_input])
     inp_scaled = scaler.transform([model_input])
     res = clf.predict(inp_scaled)
+    print(res)
     return res[0]
 
 
