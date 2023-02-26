@@ -6,34 +6,17 @@
 
 
 <script src="{{url_for('static', filename='main.js')}}"></script>
-<script>
-    $(function(){
-        window.setInterval(function(){
-            loadNewPointCount()
-        }, 100)
 
-    function loadNewPointCounter(){
-        $.ajax({
-            url:"/update_points",
-            type:"POST",
-            dataType:"json",
-            success: function(data) {
-                $(pointVal).replaceWith(data)
-            }
-        });
-    }
-    });
-</script>
 <body>
 <div class = "container">
 {% for i in range(0, parameterListLen) %}
     <li>{{parameterList[i]}}</li>
 <div class="slidecontainer">
-    <input type="range" min="0" max="100" value="0" class="slider" id="{{parameterList[i]}}">
+    <input type="range" min="0" max="100" value="0" class="slider" id="{{parameterList[i]}}" onChange="sendValue()">
 </div>
 {% endfor %}
 <button class="submit" onclick="changeCountry()">SUBMIT</button>
 <h3 id="my-country-header">Hit Submit to Get Results</h3>
-<h3>Points Remaining: </h3><p id="pointVal">{{userPointCount}}</p>
+<h3>Points Remaining: </h3><h3 id="pointVal">750</h3>
 </div>
 </body>
