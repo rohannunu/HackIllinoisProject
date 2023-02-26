@@ -16,6 +16,9 @@ clf.fit(X_scaled, y)
 
 input = [[9,18.0,20.0,9.0,11.0,14.0,19.0,8.0,0.069134,5542237,0.0015,18,303890,0.86]]
 inp_scaled = scaler.transform(input)
+#print(clf.predict(inp_scaled))
+#print(clf.predict_proba(inp_scaled))
+
 
 
 # Need to move this somewhere else, but will keep this for now
